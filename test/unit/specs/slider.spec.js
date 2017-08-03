@@ -62,6 +62,30 @@ describe('Slider', () => {
     expect(slider.$refs.tooltip.showPopper).to.false;
   });
 
+  it('tooltip popperClass', function(done) {
+    this.timeout(4000);
+    vm = createVue({
+      template: `
+        <div>
+          <el-slider v-model="value" popper-class="custom-popper">
+          </el-slider>
+        </div>
+      `,
+
+      data() {
+        return {
+          value: 0
+        };
+      }
+    }, true);
+    const slider = vm.$children[0].$children[0];
+    slider.handleMouseEnter();
+    vm.$nextTick(_ => {
+      expect(slider.$refs.tooltip.popperVM.$el.classList.contains('custom-popper')).to.true;
+      done();
+    });
+  });
+
   it('hide tooltip', () => {
     vm = createVue({
       template: `

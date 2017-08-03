@@ -23,11 +23,13 @@
         :style="barStyle">
       </div>
       <slider-button
+        :popper-class="popperClass"
         :vertical="vertical"
         v-model="firstValue"
         ref="button1">
       </slider-button>
       <slider-button
+        :popper-class="popperClass"
         :vertical="vertical"
         v-model="secondValue"
         ref="button2"
@@ -102,6 +104,10 @@
       },
       height: {
         type: String
+      },
+      popperClass: {
+        type: String,
+        default: ''
       }
     },
 

@@ -7,7 +7,7 @@
     :class="{ 'hover': hovering, 'dragging': dragging }"
     :style="wrapperStyle"
     ref="button">
-    <el-tooltip placement="top" ref="tooltip" :disabled="!showTooltip">
+    <el-tooltip placement="top" ref="tooltip" :disabled="!showTooltip" :popper-class="popperClass">
       <span slot="content">{{ formatValue }}</span>
       <div class="el-slider__button" :class="{ 'hover': hovering, 'dragging': dragging }"></div>
     </el-tooltip>
@@ -32,6 +32,10 @@
       vertical: {
         type: Boolean,
         default: false
+      },
+      popperClass: {
+        type: String,
+        default: ''
       }
     },
 
